@@ -1,11 +1,12 @@
 <% if @groups.blank? %>
-<p>There are not any categories currently in the system.</p>
+<p>There are no categories available in the system.</p>
 <% else %>
 <p>These are the current categories in our system</p>
 
 <ul id = "categories">
    <% @groups.each do |g| %>
    <li><%= link_to g.name -%></li>
+   <li><%= link_to g.icon -%></li>
    <% end %>
 </ul>
 
