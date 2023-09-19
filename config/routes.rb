@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'groups/index'
   devise_for :users
 
-  resources :users, only: [] do
-    resources :categories, only: [:index]
+  authenticated :user do
+    root 'groups#index', as: :authenticated_root
   end
 
   root 'splash#index'
