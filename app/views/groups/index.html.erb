@@ -1,2 +1,13 @@
-<h1>Groups#index</h1>
-<p>Find me in app/views/groups/index.html.erb</p>
+<% if @groups.blank? %>
+<p>There are not any categories currently in the system.</p>
+<% else %>
+<p>These are the current categories in our system</p>
+
+<ul id = "categories">
+   <% @groups.each do |g| %>
+   <li><%= link_to g.name -%></li>
+   <% end %>
+</ul>
+
+<% end %>
+<p><%= link_to "Add a new category"%></p>
