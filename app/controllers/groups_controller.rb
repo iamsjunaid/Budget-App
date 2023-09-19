@@ -1,13 +1,18 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  
-  def index 
-    @groups = Group.all
+  before_action :find_user
+
+  def index
+    @groups = @user.groups.all
   end
 
-  def show
+  private
+
+  def find_user
+    @user = current_user
   end
 
-  def new
+  def group_params
+    params.require(:group).permit(:name, :icon)
   end
 end
